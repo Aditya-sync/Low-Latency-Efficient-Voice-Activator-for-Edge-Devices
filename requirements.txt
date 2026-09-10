@@ -1,0 +1,7 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+faster-whisper==1.2.1
+python-multipart==0.0.9
+numpy==1.26.4
+requests==2.32.3
+piper-tts==1.4.2
