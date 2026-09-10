@@ -1,2 +1,17 @@
 .vscode/
 .vscode/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Generated audio
+audio/
+
+# OS
+.DS_Store
+asr-model/answers/

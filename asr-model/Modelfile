@@ -1,0 +1,41 @@
+﻿FROM hf.co/Qwen/Qwen3-4B-GGUF:Q4_K_M
+
+PARAMETER temperature 0.7
+PARAMETER top_k 20
+PARAMETER top_p 0.8
+PARAMETER min_p 0
+PARAMETER repeat_penalty 1
+PARAMETER presence_penalty 1.0
+PARAMETER num_ctx 4096
+PARAMETER num_predict 128
+
+TEMPLATE """{{- $lastUserIdx := -1 -}}
+{{- range $idx, $msg := .Messages -}}
+{{- if eq $msg.Role "user" }}{{ $lastUserIdx = $idx }}{{ end -}}
+{{- end }}
+{{- if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}
+{{- range $i, $msg := .Messages }}
+{{- if eq $msg.Role "user" }}
+<|im_start|>user
+{{ .Content }}<|im_end|>
+{{- else if eq $msg.Role "assistant" }}
+<|im_start|>assistant
+{{ if .Content }}{{ .Content }}{{ end }}<|im_end|>
+{{- end }}
+{{- end }}
+<|im_start|>assistant
+<think>
+
+</think>
+
+"""
+
+SYSTEM """You are a concise voice assistant.
+Answer the user's question directly.
+Do not show reasoning.
+Do not use <think> tags.
+Keep answers short and natural for speech.
+For simple questions, answer in one sentence.
+"""
