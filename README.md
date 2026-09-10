@@ -207,11 +207,17 @@ The FastAPI backend includes a browser-based interface for interacting with the 
 ```text
 Low-Latency-Efficient-Voice-Activator-for-Edge-Devices/
 │
+├── assets/
+│   └── screenshots/
+│       ├── esp32-inmp441-detailed-schematic.jpeg
+│       ├── esp32-inmp441-full-schematic.jpeg
+│       └── esp32-inmp441-speaker-schematic.jpeg
+│
 ├── asr-model/
 │   ├── answers/
 │   ├── audio/
 │   ├── esp32_voice_assistant/
-│   ├── piper_voices/
+│   │   └── piper_voices/
 │   ├── Modelfile
 │   ├── Modelfile.txt
 │   ├── README.md
@@ -222,7 +228,8 @@ Low-Latency-Efficient-Voice-Activator-for-Edge-Devices/
 │   └── test_client.py
 │
 ├── docs/
-│   └── architecture.md
+│   ├── architecture.md
+│   └── hey_bitsy_wakeword/
 │
 ├── hey_bitsy_wakeword/
 │   ├── ei-rishikeshsinha7091-project-1-arduino-1.0.5-impulse-#1/
@@ -237,7 +244,8 @@ Low-Latency-Efficient-Voice-Activator-for-Edge-Devices/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── SUBMISSION_GUIDE.md
 ```
 
 ### 📌 Directory & File Guide
